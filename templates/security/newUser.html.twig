@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'inscrire{% endblock %}
+
+{% block classbody %}
+    style='background-image: url({{asset('img/backgroundLogin.jpg')}})'
+{% endblock %}
+
+{% block body %}
+    <div class="login-wrapper mt-3">
+        <div class="row">
+            <div class="box-login login-form box-shadow">
+                <h3>Créer un compte</h3>
+                <div class="col-12 form-group">
+                    <label for="nom">Nom</label>
+                    <input class="form-control data needed" id="nom" name="nom" required autofocus>
+                </div>
+                <div class="col-12 form-group">
+                    <label for="prenom">Prénom</label>
+                    <input class="form-control data needed" id="prenom" name="prenom" required>
+                </div>
+                <div class="col-12 form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control data needed" id="email" name="email" type="email" required>
+                </div>
+                <div class="col-12 form-group">
+                    <label for="password">Mot de passe</label>
+                    <input class="form-control data needed" type="password" id="password" name="password" required>
+                </div>
+                <p id="error_credentials"></p>
+                <a href="{{ path('app_login') }}" class="btn btn-primary">Retour menu</a>
+                <button id="button-login" class="btn btn-lg btn-success new-button" type="submit" onclick="newUser($(this))">
+                    Enregistrer
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{{ asset('js/login.js') }}"></script>
+{% endblock %}

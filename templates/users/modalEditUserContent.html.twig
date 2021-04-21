@@ -1,0 +1,84 @@
+<form method="" id="modalEditUserContent">
+    <div class="modal-body modal-input container-fluid row">
+        <div class="col-12 form-group required" style="display:none;">
+            <input type="text" class="form-control data needed" name="user" required="" value="{{ user.id }}">
+        </div>
+        <div class="col-12 form-group">
+            <label for="nom">Nom</label>
+            <input class="form-control data needed" id="nom" name="nom" required="" value="{{ user.name }}">
+        </div>
+        <div class="col-12 form-group">
+            <label for="prenom">Prénom</label>
+            <input class="form-control data needed" name="prenom" id="prenom" value="{{ user.firstname }}">
+        </div>
+        <div class="col-12 form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control data needed" name="email" value="{{ user.email }}">
+        </div>
+        <div class="col-12 form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" class="form-control data" name="password" value="">
+        </div>
+
+        <div class="col-12 form-group">
+            Statut : &nbsp;&nbsp; Inactif
+            <label class="switch">
+                <input type="checkbox" class="checkbox data" name="statusEdit" id="statusEdit" value="{{ user.status }}"
+                       onchange="toggleStatus($('#statusEdit'), $('.disabledIfInactifEdit'))" {{ user.status ? 'checked' : '' }}>
+                <span class="slider round"></span>
+            </label>
+            Actif
+        </div>
+
+        <div class="disabledIfInactifEdit">
+            <div class="col-12 form-group">
+                <label for="validatorsEdit">Validateurs</label>
+                <select type="text" class="form-control data select2" name="validatorsEdit" multiple="multiple"
+                        id="validatorsEdit">
+                    {% for user in allUser %}
+                        <option value="{{ user.id }}">
+                            {{ user.name }} {{ user.firstname }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-12 form-group">
+                Peut gérer les utilisateurs
+                <label class="switch">
+                    <input type="checkbox" class="data checkbox" name="manageUsers"
+                        {% for access in listAccess %}
+                            {% if access == constant('App\\Entity\\Access::MANAGE_USERS') %}
+                                checked
+                               value="true"
+                            {% else %}value="false"
+                            {% endif %}
+                        {% endfor %}>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="col-12 form-group">
+                Peut voir toutes les demandes
+                <label  class="switch">
+                    <input type="checkbox" class="data checkbox" name="displayHolidays"
+                        {% for access in listAccess %}
+                            {% if access == 'DISPLAY_ALL_HOLIDAYS' %}
+                                checked
+                                value="true"
+                            {% else %}value="false"
+                            {% endif %}
+                        {% endfor %}>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Congés payés</label>
+                <input type="number" class="form-control data" name="cp" value="{{ user.cp }}" min="0">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">RTT</label>
+                <input type="number" class="form-control data" name="rtt" value="{{ user.rtt }}" min="0">
+            </div>
+        </div>
+    </div>
+</form>

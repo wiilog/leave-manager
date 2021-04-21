@@ -1,0 +1,15 @@
+<h1>Une nouvelle demande de congée a été demandé. </h1>
+
+<p>Détails du congé : </p>
+
+<h2>Demandeur : {{ conge.requester }}</h2>
+
+<ul>
+    <li>Du {{ conge.startDate|date('d/m/y') }} Au {{ conge.endDate|date('d/m/y') }}</li>
+    <li>Description : {{ conge.description }}</li>
+    <li>Date de demande : {{ conge.requestDate|date('d/m/y') }}</li>
+    <li>Reduction du temps de travail : {{ conge.rtt }}</li>
+    <li>Sans soldes : {{ conge.ss }}</li>
+    <li>Congés payés : {{ conge.cp }}</li>
+</ul>
+    <a href="http://my.wiilog.fr" class="btn btn-primary">Accéder à la demande</a>

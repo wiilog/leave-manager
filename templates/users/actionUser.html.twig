@@ -1,0 +1,11 @@
+<td>
+    <span data-toggle='modal' data-target='#modalEditUser'data-id='{{ userId }}'
+             onclick="editRow($(this),Routing.generate('user_api_edit', true), $('#modalEditUser'),$('#submitEditUser'), true)">
+            <i class='fas fas-medium fa-pencil-alt mr-2'></i>
+    </span>
+
+    <span onclick="deleteRow($(this), $('#modalDeleteUser'), $('#submitDeleteUser'))"
+          data-id='{{ userId }}' data-target='#modalDeleteUser' data-toggle='modal'>
+            <i class='fas fas-medium fa-trash mr-2'></i>
+    </span>
+</td>

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-light navbar-base navbar-app d-flex justify-content-between">
+        <a class="navbar-brand" href="{{ path('list_holiday') }}">
+            <img src="/img/Wiilog.png" width="60" height="50" class="d-inline-block align-bot" alt="icône wiilog">
+            Gestion des congés
+        </a>
+
+        <div class="icons">
+            <ul class="navbar-nav mr-auto">
+                {% if(app.request.get('_route')) != 'users'%}
+                    {% if hasAccess(constant('App\\Entity\\Access::MANAGE_USERS')) %}
+                        <li class="nav-item active mr-3">
+                            <a href="{{ path('users') }}" class="fas fas-big fa-user-friends"></a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+
+                {% if(app.request.get('_route')) != 'list_holiday'%}
+                    <li class="nav-item active mr-3">
+                        <a href="{{ path('list_holiday') }}" class="fas fas-big fa-umbrella-beach"></a>
+                    </li>
+                {% endif %}
+
+                {% if hasAccess(constant('App\\Entity\\Access::MANAGE_USERS')) %}
+                    <li class="nav-item active mr-3">
+                        <a href="{{ path('params') }}" class="fas fas-big fa-gear"></a>
+                    </li>
+                {% endif %}
+
+                <li class="nav-item active mr-3">
+                    <a href="{{ path('app_logout') }}" class="fas fas-big fa-sign-out-alt"></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}

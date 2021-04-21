@@ -1,0 +1,10 @@
+{% extends 'navbar.html.twig' %}
+
+{% block title %}Accès refusé{% endblock %}
+{% block body %}
+        <div class="m-5">
+            <h1 class="main-title">{{ app.user.username|capitalize }}, vous n'avez pas l'autorisation d'accéder à cette page.</h1>
+
+            <p><em>Veuillez contacter votre administrateur si vous souhaitez modifier vos droits accès.</em></p>
+        </div>
+{% endblock %}

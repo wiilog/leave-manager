@@ -1,0 +1,74 @@
+<div class="modal fade" id="modalAddHoliday" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nouvelle demande</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Objet</span>
+                        </div>
+                        <input type="text" id="" class="form-control description" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="">Du / Au</span>
+                        </div>
+                        <input type="date" onchange="changeDate($(this))" name="somedate" class="form-control firstDate required" placeholder="AAAA-MM-JJ">
+                        <input type="date" onchange="changeDate($(this))" class="form-control secondDate" placeholder="AAAA-MM-JJ">
+                    </div>
+                    <br>
+                    <div class="radioDay invisible">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input radioAllDay" type="radio" name="radioDayNew" value="day" id="radio-day-new" checked>
+                            <label class="form-check-label" for="radio-day-new">Journée</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input radioMorning" type="radio" name="radioDayNew" value="morning" id="radio-morning-new">
+                            <label class="form-check-label" for="radio-morning-new">Matin</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input radioAfternoon" type="radio" name="radioDayNew" value="afternoon" id="radio-afternoon-new">
+                            <label class="form-check-label" for="radio-afternoon-new">Après-midi</label>
+                        </div>
+                    </div>
+
+                    <p class="text-center bold invisible mt-3"><span class="nbDaysLeft"></span> jour(s) à poser</p>
+
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Congés payés</label>
+                        <div class="input-group">
+                        <input type="number" onchange="calculsMax($(this))" class="form-control cp required number-decimal" value="0" min="0">
+                            <div class="input-group-append">
+                                <span class="input-group-text">Max :&nbsp;<span class="stock-cp">{{ cpCurrentUser }}</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Sans solde</label>
+                        <input type="number" onchange="calculsMax($(this))" class="form-control ss required number-decimal" value="0" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">RTT</label>
+                        <div class="input-group">
+                            <input type="number" onchange="calculsMax($(this))" class="form-control rtt required number-decimal" value="0" min="0">
+                            <div class="input-group-append">
+                                <span class="input-group-text ">Max :&nbsp;<span class="stock-rtt">{{ rttCurrentUser }}</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="error-msg pl-5 pr-5 pb-4"></div>
+                <div class="modal-footer">
+                    <div class="btn btn-secondary" data-dismiss="modal">Annuler</div>
+                    <div class="btn btn-primary btn_valide" onclick="addHoliday({{ idCurrentUser }})">Valider</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<td class="d-flex">
+    {% if canDelete %}
+        <span data-id="{{ id }}" onclick="deleteHoliday(this)">
+            <i class='fas fas-medium fa-trash mr-2'></i>
+        </span>
+    {% endif %}
+    {% if canUpdate %}
+        <span data-id="{{ id }}" data-toggle="modal" data-target="#modalEditHoliday" onclick="printInfoHoliday(this)">
+            <i class='fas fas-medium fa-pencil-alt mr-2'></i>
+        </span>
+    {% endif %}
+</td>

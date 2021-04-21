@@ -1,0 +1,15 @@
+<h1>Votre demande de congée a été acceptée ! </h1>
+
+<p>Détails du congé : </p>
+
+<ul>
+    <li>Du {{ conge.startDate|date('d/m/y') }} Au {{ conge.endDate|date('d/m/y') }}</li>
+    <li>Description : {{ conge.description }}</li>
+    <li>Date de demande : {{ conge.requestDate|date('d/m/y') }}</li>
+    <li>Reduction du temps de travail : {{ conge.rtt }}</li>
+    <li>Sans soldes : {{ conge.ss }}</li>
+    <li>Congés payés : {{ conge.cp }}</li>
+    <li>Validateur de la demande : {{ conge.validator.firstname ~ ' ' ~ conge.validator.name }}</li>
+</ul>
+
+<h1>Bonnes vacances! :)</h1>

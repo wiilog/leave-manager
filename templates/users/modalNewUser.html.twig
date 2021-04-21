@@ -1,0 +1,77 @@
+<div method="" class="modal fade" id ="modalNewUser" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nouvel utilisateur</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body modal-input container-fluid row">
+                <div class="col-12 form-group">
+                    <label for="username">Nom</label>
+                    <input class="form-control data needed" id="nom" name="nom">
+                </div>
+                <div class="col-12 form-group">
+                    <label for="username">Prénom</label>
+                    <input class="form-control data needed" id="prenom" name="prenom">
+                </div>
+                <div class="col-12 form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control data needed" id="email" name="email">
+                </div>
+                <div class="col-12 form-group">
+                    <label for="password">Mot de passe</label>
+                    <input class="form-control data needed" type="password" id="password" name="password">
+                </div>
+
+
+                <div class="col-12 form-group">
+                    Statut :  &nbsp;&nbsp; Inactif
+                    <label class="switch">
+                        <input type="checkbox" class="data checkbox" id="statusNew" name="statusNew"
+                               onchange="toggleStatus($('#statusNew'), $('.disabledIfInactifNew'))" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    Actif
+                </div>
+
+                <div class="disabledIfInactifNew">
+                    <div class="col-12 form-group">
+                        <label for="validators">Validateurs</label>
+                        <select type="text" class="form-control data select2" name="validatorsNew" multiple="multiple"
+                                id="validators">
+                            {% for user in users %}
+                                <option value="{{ user.id }}">
+                                    {{ user.name|upper }} {{ user.firstname|capitalize }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-12 form-group">
+                        Peut gérer les utilisateurs
+                        <label class="switch">
+                            <input type="checkbox" class="data checkbox" id="manageUsers" name="manageUsers">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="col-12 form-group">
+                        Peut voir toutes les demandes
+                        <label class="switch">
+                            <input type="checkbox" class="data checkbox" id="displayHolidays" name="displayHolidays">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="error-msg p-4"></div>
+
+                <div class="col-12 form-group">
+                    <div class="btn" data-dismiss="modal">Annuler</div>
+                    <button id="submitModalNewUser" name="modalNewUser" type="button" class="btn btn-primary data"
+                            onclick="initialiserModalUser(Routing.generate('new_user', true), $('#modalNewUser'))">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
