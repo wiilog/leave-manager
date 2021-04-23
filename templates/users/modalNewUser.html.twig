@@ -39,12 +39,13 @@
                 <div class="disabledIfInactifNew">
                     <div class="col-12 form-group">
                         <label for="validators">Validateurs</label>
-                        <select type="text" class="form-control data select2" name="validatorsNew" multiple="multiple"
-                                id="validators">
+                        <select type="text" class="form-control data select2" name="validatorsNew" data-default="9" multiple="multiple" id="validators">
                             {% for user in users %}
-                                <option value="{{ user.id }}">
-                                    {{ user.name|upper }} {{ user.firstname|capitalize }}
-                                </option>
+                                {% if user.id == '9' %}
+                                    <option value="{{ user.id }}" selected>
+                                        {{ user.name|upper }} {{ user.firstname|capitalize }}
+                                    </option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                     </div>

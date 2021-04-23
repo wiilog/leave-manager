@@ -22,7 +22,7 @@ security:
                 authenticators:
                     - App\Security\Authenticator
             logout:
-                path: logout
+                path: app_logout
 
             switch_user: true
 

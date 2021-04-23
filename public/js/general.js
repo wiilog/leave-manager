@@ -12,7 +12,7 @@ function clearModal(modal) {
     // on vide tous les select2
     let selects = $modal.find('.modal-body').find('.select2');
     selects.each(function () {
-        $(this).val(null).trigger('change');
+        $(this).val($(this).data("default")).trigger('change');
     });
     // on vide les messages d'erreur
     $modal.find('.error-msg').html('');
