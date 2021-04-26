@@ -41,9 +41,11 @@
                         <label for="validators">Validateurs</label>
                         <select class="form-control data select2 needed" name="validatorsNew" data-default="9" multiple="multiple" id="validators">
                             {% for user in users %}
+                                {%if user.id == '9' %}
                                 <option value="{{ user.id }}">
                                     {{ user.name|upper }} {{ user.firstname|capitalize }}
                                 </option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                     </div>
