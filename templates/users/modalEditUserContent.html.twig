@@ -33,7 +33,7 @@
         <div class="disabledIfInactifEdit">
             <div class="col-12 form-group">
                 <label for="validatorsEdit">Validateurs</label>
-                <select type="text" class="form-control data select2" name="validatorsEdit" multiple="multiple"
+                <select class="form-control data select2 needed" name="validatorsEdit" multiple="multiple"
                         id="validatorsEdit">
                     {% for user in allUser %}
                         <option value="{{ user.id }}">

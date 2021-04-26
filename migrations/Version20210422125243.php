@@ -19,7 +19,14 @@ final class Version20210422125243 extends AbstractMigration
 
     public function up(Schema $schema) : void
     {
-        $lignes= $this->connection->executeQuery("SELECT user.id FROM user LEFT JOIN user_user ON user.id = user_user.user_source WHERE user_user.user_source is NULL")->fetchAll();
+        $lignes= $this->connection
+            ->executeQuery("
+                SELECT user.id 
+                FROM user 
+                    LEFT JOIN user_user ON user.id = user_user.user_source
+                WHERE user_user.user_source is NULL
+            ")
+            ->fetchAll();
         foreach ($lignes as $ligne){
             $id = $ligne["id"];
             $this->addSql("INSERT INTO user_user VALUE ('$id','9')");
