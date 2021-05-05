@@ -48,7 +48,7 @@ class MailerService
         }
 
         $this->mailer->send((new Email())
-            ->from("noreply@wiilog.fr")
+            ->from("noreply@follow-gt.fr")
             ->to($to)
             ->subject($subject)
             ->html($content));

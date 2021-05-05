@@ -1,4 +1,4 @@
-<h1>Une nouvelle demande de congée a été demandé. </h1>
+<h1>Une nouvelle demande de congé a été demandée. </h1>
 
 <p>Détails du congé : </p>
 
@@ -8,7 +8,7 @@
     <li>Du {{ conge.startDate|date('d/m/y') }} Au {{ conge.endDate|date('d/m/y') }}</li>
     <li>Description : {{ conge.description }}</li>
     <li>Date de demande : {{ conge.requestDate|date('d/m/y') }}</li>
-    <li>Reduction du temps de travail : {{ conge.rtt }}</li>
+    <li>Réduction du temps de travail : {{ conge.rtt }}</li>
     <li>Sans soldes : {{ conge.ss }}</li>
     <li>Congés payés : {{ conge.cp }}</li>
 </ul>
