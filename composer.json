@@ -5,8 +5,10 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.2.5",
+        "ext-calendar": "^7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "^7.4",
         "composer/package-versions-deprecated": "1.11.99.1",
         "doctrine/annotations": "^1.0",
         "doctrine/doctrine-bundle": "^2.3",
@@ -42,9 +44,7 @@
         "symfony/web-link": "5.2.*",
         "symfony/yaml": "5.2.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0",
-        "ext-json": "*",
-        "ext-calendar": "*"
+        "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
         "symfony/browser-kit": "^5.2",

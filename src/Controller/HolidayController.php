@@ -402,13 +402,13 @@ class HolidayController extends AbstractController
             for ($i = 0; $i <= $interval->d; $i++) {
                 $weekday = $datetime1->format('w');
                 $year = $datetime1->format("Y");
-                $easterDate  = easter_date($year);
-                $easterDay   = date('j', $easterDate);
-                $easterDayPaque   = date('j', $easterDay) + 1;
-                $easterDayLundiPaque   = date('j', $easterDay) + 39;
-                $easterDayPentecote   = date('j', $easterDay) + 50;
+                $easterDate = easter_date($year);
+                $easterDay = date('j', $easterDate);
+                $easterDayPaque = date('j', $easterDay) + 1;
+                $easterDayLundiPaque = date('j', $easterDay) + 39;
+                $easterDayPentecote = date('j', $easterDay) + 50;
                 $easterMonth = date('n', $easterDate);
-                $easterYear   = date('Y', $easterDate);
+                $easterYear = date('Y', $easterDate);
                 $publicHoliday = array(
                     \DateTime::createFromFormat('Y-m-d', $year . '-01-01')->format('Y-m-d'),
                     \DateTime::createFromFormat('Y-m-d', $year . '-05-08')->format('Y-m-d'),
