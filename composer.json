@@ -5,7 +5,6 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.2.5",
-        "ext-calendar": "^7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "^7.4",
